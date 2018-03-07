@@ -1,5 +1,7 @@
 import * as PIXI from 'pixi.js'
-import catImage from './images/cats'
+import catsImage from './images/cats'
+import catImage from './images/cat'
+import meowSound from './sounds/meow'
 
 // let type = "WebGL"
 
@@ -22,8 +24,17 @@ const init = () => {
   app.renderer.autoResize = true;
   app.renderer.resize(window.innerWidth, window.innerHeight);
   
-  let catTexture = PIXI.utils.TextureCache[catImage];
-  let catSprite = new PIXI.Sprite(catTexture)
+  let catsTexture = PIXI.utils.TextureCache['mainCatTexture'];
+  let catTexture = PIXI.utils.TextureCache['catTexture'];
+  let catSprite = new PIXI.Sprite(catsTexture)
+
+  catSprite.x = 50
+  catSprite.y = 50
+
+  catSprite.scale.x = 0.7
+  catSprite.scale.y = 0.7
+
+  let rectangle = new PIXI.Rectangle(0, 70, window.innerWidth, window.innerHeight);
   
   document.body.appendChild(app.view);
   
@@ -31,7 +42,9 @@ const init = () => {
 }
 
 PIXI.loader
-  .add(catImage)
+  .add('mainCatTexture', catsImage)
+  .add('catTexture', catImage)
+  .add('mainMeowSound', meowSound)
   .load(init);
 
 
