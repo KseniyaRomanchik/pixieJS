@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "midiconvert": "^0.4.3",
+    "midifile": "^1.0.4",
     "pixi.js": "^4.7.0"
   },
   "devDependencies": {
