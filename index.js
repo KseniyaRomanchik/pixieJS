@@ -49911,6 +49911,17 @@ const init = () => {
     new PIXI.filters.BlurFilter(0.3)
   ]
 
+  const startMidi = (timeout, noteIndex) => {
+
+    console.log(midi.tracks[1].notes[noteIndex].name)
+
+    setTimeout(() => {
+      startMidi(midi.tracks[1].notes[noteIndex].duration, noteIndex + 1)
+    }, timeout)
+  }
+
+  midi.startTime.duration
+
   function imageCover(imageWidth, imageHeight) {
 
     const heightScale = window.innerHeight / imageHeight
